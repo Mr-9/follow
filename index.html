@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+ 
 <head>
-  <meta charset="UTF-8">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax</title>
+    <script src="ajax.js"></script>
+    <script>
+        //请求服务器上面的数组json，ajax
+        window.onload = function() {
+            var oBtn = document.getElementById('btn1')
+            oBtn.onclick = function() {
+                ajax('data.json?t=' + new Date().getTime(), function(str) {
+                    //str->[{a:1,b:2},{a:3,b:4}]
+                    var arr = eval(str);
+                    alert(arr[1].b);
+                })
+            }
+        }
+    </script>
 </head>
+ 
 <body>
-  <h1>hello word!</h1>
+    点击后读取txt1.txt<br/>
+    <input id="btn1" type="button" name="" value="读取">
 </body>
+ 
 </html>
